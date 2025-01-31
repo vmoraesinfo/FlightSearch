@@ -1,4 +1,4 @@
-package com.moraes.controller;
+package com.moraes.FlightSearch.controller;
 
 
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.moraes.model.Tap;
+
+import com.moraes.FlightSearch.model.Tap;
 
 @Component
 public class TapClient {

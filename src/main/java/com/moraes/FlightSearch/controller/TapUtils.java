@@ -1,9 +1,9 @@
-package com.moraes.controller;
+package com.moraes.FlightSearch.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.moraes.model.Tap;
+import com.moraes.FlightSearch.model.Tap;
 
 public class TapUtils {
     

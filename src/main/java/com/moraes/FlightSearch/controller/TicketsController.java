@@ -1,6 +1,5 @@
-package com.moraes.controller;
+package com.moraes.FlightSearch.controller;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.moraes.model.Tap;
+import com.moraes.FlightSearch.model.Tap;
 
 @RestController
 @RequestMapping("/v1/flights/search")
