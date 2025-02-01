@@ -1,0 +1,8 @@
+services:
+  flight-search-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: flight-search-api
+    ports:
+      - "8080:8080"

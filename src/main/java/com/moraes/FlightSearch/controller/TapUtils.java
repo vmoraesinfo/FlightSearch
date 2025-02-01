@@ -7,12 +7,12 @@ import com.moraes.FlightSearch.model.Tap;
 
 public class TapUtils {
     
-    public static List<Tap> getLowestFareInArray(Tap[] tap) {
-        if (tap == null || tap.length == 0) {
-            throw new IllegalArgumentException("Tap array must not be null or empty");
+    public static List<Tap> getLowestFareInList(List<Tap> tap) {
+        if (tap == null || tap.size() == 0) {
+            return new ArrayList<>();
         }
         List<Tap> lowestFareTap = new ArrayList<>();
-        lowestFareTap.add(tap[0]);
+        lowestFareTap.add(tap.get(0));
         for (Tap t : tap) {
 
             if (t.getBestTotalPrice() > 0){

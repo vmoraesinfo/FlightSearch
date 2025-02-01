@@ -3,6 +3,8 @@ package com.moraes.FlightSearch.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.json.JSONObject;
@@ -14,6 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.moraes.FlightSearch.model.Tap;
@@ -22,7 +26,7 @@ import com.moraes.FlightSearch.model.Tap;
 public class TapClient {
     private static final String API_URL = "https://www.flytap.com/api/calendar?functionName=calendar";
 
-    public Tap[] getPrice(String origin, String destination, String month, String year) {
+    public List<Tap> getPrice(String origin, String destination, String month, String year) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         // headers.setBearerAuth("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiItYnFCaW5CaUh6NFlnKzg3Qk4rUFUzVGFYVVd5UnJuMVQvaVYvTGp4Z2VTQT0iLCJzY29wZXMiOlsiUk9MRV9BTk9OWU1PVVNfVVNFUiJdLCJob3N0IjoidGFwbHBhYjA0MDAwMDI5LmludGVybmFsLmNsb3VkYXBwLm5ldCIsInJhbmRvbSI6Iks2TjZKIiwiaWF0IjoxNjk2MTY4NDU1LCJleHAiOjE2OTYxODY0NTV9.qM9Dd62TPSe3_oj0vW8dmv61WdG6MQQj2FC8b8irdRA");
@@ -60,7 +64,7 @@ public class TapClient {
         return jsonObject;
     }
 
-    private Tap[] extractBestPrices(Map<String, Object> response) {
+    private List<Tap> extractBestPrices(Map<String, Object> response) {
         if(response != null) {       
             Object dataObject = response.get("data");
             Map<?,?> data = null;
@@ -69,9 +73,9 @@ public class TapClient {
             }
             if(data != null){
                 ObjectMapper mapper = new ObjectMapper();
-                Tap[] bestPriceForDates = null;
+                List<Tap> bestPriceForDates = null;
                 if(data.get("bestPriceForDates") instanceof ArrayList){
-                    bestPriceForDates = mapper.convertValue(data.get("bestPriceForDates"), Tap[].class);
+                    bestPriceForDates = mapper.convertValue(data.get("bestPriceForDates"), new TypeReference<List<Tap>>() {});
                 }
                 return bestPriceForDates;
             }
