@@ -1,7 +1,0 @@
-services:
-  flight-search-frontend:
-    build:
-      context: .
-    container_name: flight-search-frontend
-    ports:
-      - 80:80

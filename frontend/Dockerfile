@@ -1,9 +1,16 @@
 FROM node:18-alpine
-WORKDIR /usr/flight-serach-frontend
-COPY package.json /usr/flight-serach-frontend/package.json
-COPY package-lock.json /usr/flight-serach-frontend/package-lock.json
+WORKDIR /tmp/react
+
+COPY . .
+
+RUN npm i
+
+RUN npm run build
+RUN mkdir -p /var/www/html
+RUN mv dist/* /var/www/html
 
 RUN npm install
-COPY . /usr/flight-serach-frontend
-EXPOSE 80
-CMD [ "npm", "run", "dev" ]
+
+WORKDIR /
+
+RUN rm -rf /tmp/react

@@ -100,7 +100,7 @@ function App() {
   sx={{ width: 300 }}
   value={origin}
   style={{height: "30px"}}
-  onChange={(event, value) => setOrigin(value ? value : { code: '', city: '' })}
+  onChange={(_, value) => setOrigin(value ? value : { code: '', city: '' })}
 
   renderInput={(params) => <TextField {...params} label="Origin" />}
 />
@@ -111,7 +111,7 @@ function App() {
   options={airports}
   value={destination}
   sx={{ width: 300 }}
-  onChange={(event, value) => setDestination(value ? value : { code: '', city: '' })}
+  onChange={(_, value) => setDestination(value ? value : { code: '', city: '' })}
   style={{height: "30px"}}
   renderInput={(params) => <TextField {...params} label="Destination" />}
 />
@@ -122,7 +122,7 @@ function App() {
   getOptionKey={(option) => option}
   sx={{ width: 300 }}
   value={year.toString()}
-  onChange={(event, value) => setYear(value ? Number(value) : 0)}
+  onChange={(_, value) => setYear(value ? Number(value) : 0)}
   style={{height: "30px"}}
   renderInput={(params) => <TextField {...params} label="Year" />}
 />
@@ -132,7 +132,7 @@ function App() {
   options={months}
   value={month.toString()}
   sx={{ width: 300 }}
-  onChange={(event, value) => setMonth(value ? Number(value) : 0)}
+  onChange={(_, value) => setMonth(value ? Number(value) : 0)}
   style={{height: "30px"}}
   renderInput={(params) => <TextField {...params} label="Month" />}
 />
