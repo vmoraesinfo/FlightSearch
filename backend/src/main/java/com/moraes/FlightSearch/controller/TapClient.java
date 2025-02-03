@@ -29,9 +29,7 @@ public class TapClient {
     public List<Tap> getPrice(String origin, String destination, String month, String year) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        // headers.setBearerAuth("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiItYnFCaW5CaUh6NFlnKzg3Qk4rUFUzVGFYVVd5UnJuMVQvaVYvTGp4Z2VTQT0iLCJzY29wZXMiOlsiUk9MRV9BTk9OWU1PVVNfVVNFUiJdLCJob3N0IjoidGFwbHBhYjA0MDAwMDI5LmludGVybmFsLmNsb3VkYXBwLm5ldCIsInJhbmRvbSI6Iks2TjZKIiwiaWF0IjoxNjk2MTY4NDU1LCJleHAiOjE2OTYxODY0NTV9.qM9Dd62TPSe3_oj0vW8dmv61WdG6MQQj2FC8b8irdRA");
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-        // headers.setConnection("keep-alive");
 
         JSONObject jsonObject = createFlightSearchRequest(origin, destination, month, year);
 

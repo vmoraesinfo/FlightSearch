@@ -1,8 +1,37 @@
 services:
   flight-search-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: flight-search-api
+    build: ./backend
+    restart: always
     ports:
-      - "8080:8080"
+      - 8080:8080
+      
+  flight-search-frontend:
+    container_name: flight-search-frontend
+    build: ./frontend
+    volumes:
+      - react-volume:/var/www/html
+  
+  openssl:
+    build: ./openssl
+    volumes:
+      - ssl-certs:/certs
+  
+  nginx:
+    container_name: nginx_app
+    build: ./nginx
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - react-volume:/var/www/html
+      - ssl-certs:/certs
+    depends_on:
+      - postgres
+      - node
+      - react
+
+volumes:
+  react-volume:
+  ssl-certs:
