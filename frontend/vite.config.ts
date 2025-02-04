@@ -1,18 +1,17 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import replace from "@rollup/plugin-replace";
 
-// https://vite.dev/config/
+
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
-  plugins: [react()],
-  preview: {
-    port: 80,
-    strictPort: true,
-  },
-  server: {
-    port: 80,
-    strictPort: true,
-    host: true,
-    origin: 'http://0.0.0.0:80',
-  },
+  plugins: [
+    react(),
+    replace({
+      // Substitua as ocorrências de process.env.VITE_APP_BACKEND_URL pelo valor correspondente em .env
+      "process.env.VITE_APP_BACKEND_URL": JSON.stringify(
+        process.env.VITE_APP_BACKEND_URL
+      ),
+    }),
+  ],
 });
