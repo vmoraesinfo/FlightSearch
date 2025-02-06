@@ -4,6 +4,7 @@ WORKDIR /tmp/react
 COPY . .
 
 RUN npm i
+RUN npm config set strict-ssl false
 
 RUN npm run build
 RUN mkdir -p /var/www/html
