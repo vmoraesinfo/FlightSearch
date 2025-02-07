@@ -1,6 +1,6 @@
 services:
   api:
-    container_name: flight-search-api
+    container_name: api
     build: ./backend
     restart: always
     ports:
