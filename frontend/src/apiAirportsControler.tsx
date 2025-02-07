@@ -1,4 +1,4 @@
-const API_URL = process.env.VITE_APP_BACKEND_URL;
+const API_URL = 'http://13.51.158.132:8080/api';
 
 const URL = '/v1/airports/search/';
 const fetchAllAirports = async () => {
