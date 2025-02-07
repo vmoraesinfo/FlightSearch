@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.moraes.FlightSearch.model.Tap;
 
 @RestController
-@RequestMapping("/v1/flights/search")
+@RequestMapping("/api/v1/flights/search")
 public class TicketsController {
     
     @Autowired

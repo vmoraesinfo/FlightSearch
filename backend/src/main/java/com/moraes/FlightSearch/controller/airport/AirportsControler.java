@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.moraes.FlightSearch.model.SimplifyAirport;
 
 @RestController
-@RequestMapping("/v1/airports/search")
+@RequestMapping("/api/v1/airports/search")
 public class AirportsControler {
     @Autowired
     private AirportSearcher airportSearcher;
