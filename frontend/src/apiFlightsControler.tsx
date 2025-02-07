@@ -1,7 +1,8 @@
 import _ from 'lodash';
 
+const API_URL = process.env.VITE_APP_BACKEND_URL;
 
-const URL = '/api/v1/flights/search';
+const URL = `${API_URL}/api/v1/flights/search`;
 const fetchLowestPriceInTheYear = async (year: number, origin: string, destination: string) => {
     try {
       // Make a GET request using the Fetch API
