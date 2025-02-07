@@ -1,13 +1,13 @@
 services:
-  flight-search-api:
+  api:
     container_name: flight-search-api
     build: ./backend
     restart: always
     ports:
       - 8080:8080
       
-  flight-search-frontend:
-    container_name: flight-search-frontend
+  frontend:
+    container_name: frontend
     build: ./frontend
     volumes:
       - react-volume:/var/www/html
@@ -24,6 +24,7 @@ services:
     ports:
       - 80:80
       - 443:443
+      - 8080:8080
     volumes:
       - react-volume:/var/www/html
       - ssl-certs:/certs
