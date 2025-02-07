@@ -1,5 +1,5 @@
 
-const URL = 'http://flight-search-api:8080/api/v1/airports/search/';
+const URL = 'http://13.60.13.218:8080/api/v1/airports/search/';
 const fetchAllAirports = async () => {
     try {
       // Make a GET request using the Fetch API
