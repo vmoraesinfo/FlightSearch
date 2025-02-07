@@ -11,6 +11,7 @@ services:
     build: ./frontend
     volumes:
       - react-volume:/var/www/html
+      - bkp:/var/www/html/bkp
   
   openssl:
     build: ./openssl
@@ -26,6 +27,7 @@ services:
       - 443:443
     volumes:
       - react-volume:/var/www/html
+      - bkp:/var/www/html/bkp
       - ssl-certs:/certs
     depends_on:
       - api
@@ -34,3 +36,4 @@ services:
 volumes:
   react-volume:
   ssl-certs:
+  bkp:
