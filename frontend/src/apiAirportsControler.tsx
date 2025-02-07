@@ -1,6 +1,6 @@
 const API_URL = 'http://13.60.54.80:8080/api';
 
-const URL = '/v1/airports/search/';
+const URL = 'v1/airports/search/';
 const fetchAllAirports = async () => {
     try {
       // Make a GET request using the Fetch API
