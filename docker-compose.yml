@@ -11,12 +11,6 @@ services:
     build: ./frontend
     volumes:
       - react-volume:/var/www/html
-      - bkp:/var/www/html/bkp
-  
-  openssl:
-    build: ./openssl
-    volumes:
-      - ssl-certs:/certs
   
   nginx:
     container_name: nginx_app
@@ -24,16 +18,11 @@ services:
     restart: always
     ports:
       - 80:80
-      - 443:443
     volumes:
       - react-volume:/var/www/html
-      - bkp:/var/www/html/bkp
-      - ssl-certs:/certs
     depends_on:
       - api
       - frontend
 
 volumes:
   react-volume:
-  ssl-certs:
-  bkp:
