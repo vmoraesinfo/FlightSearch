@@ -3,7 +3,9 @@ const URL = '/api/v1/airports/search/';
 const fetchAllAirports = async () => {
     try {
       // Make a GET request using the Fetch API
-      const response = await fetch(`${URL}`);
+      const response = await fetch(`${URL}`,{
+        referrerPolicy: "unsafe-url" 
+      });
       
       // Check if the response is successful (status code 200-299)
       if (!response.ok) {
