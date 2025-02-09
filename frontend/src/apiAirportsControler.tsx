@@ -1,10 +1,9 @@
-const API_URL = 'http://13.60.54.80:8080/api';
 
-const URL = 'v1/airports/search/';
+const URL = '/api/v1/airports/search/';
 const fetchAllAirports = async () => {
     try {
       // Make a GET request using the Fetch API
-      const response = await fetch(`${API_URL}/${URL}`);
+      const response = await fetch(`${URL}`);
       
       // Check if the response is successful (status code 200-299)
       if (!response.ok) {
